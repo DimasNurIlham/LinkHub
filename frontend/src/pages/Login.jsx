@@ -1,11 +1,8 @@
 const Login = () => {
   const handleGoogleLogin = () => {
-    // Tulis URL backend Render secara langsung tanpa memanggil import.meta.env
-    const backendUrl = 'https://linkhub-backend.onrender.com';
-    
-    // Arahkan browser ke endpoint redirect Google
-    window.location.href = `${backendUrl}/api/auth/google/redirect`;
-  };
+  // WAJIB: Gunakan window.location.href agar browser melakukan navigasi halaman utuh
+  window.location.href = 'https://linkhub-backend.onrender.com/api/auth/google/redirect';
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
