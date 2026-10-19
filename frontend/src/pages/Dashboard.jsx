@@ -159,9 +159,10 @@ const Dashboard = () => {
             {user && (
               <div className="flex items-center space-x-2 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
                 <img
-                  src={user.avatar || 'https://via.placeholder.com/40'}
-                  alt={user.name}
-                  className="w-6 h-6 rounded-full object-cover"
+                  src={user?.avatar || user?.avatar_url} 
+                  alt={user?.name} 
+                  referrerPolicy="no-referrer"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
                 <span className="text-xs font-semibold text-slate-700">{user.name}</span>
               </div>
