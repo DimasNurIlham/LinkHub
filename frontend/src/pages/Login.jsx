@@ -1,8 +1,10 @@
 const Login = () => {
   const handleGoogleLogin = () => {
-    // Arahkan browser ke endpoint redirect Google OAuth di Laravel
-    const backendUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
-    window.location.href = `${backendUrl}/auth/google/redirect`;
+    // Ambil URL backend dari Environment Variable Vercel
+    const backendUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'https://linkhub-backend.onrender.com';
+    
+    // Sesuaikan path endpoint dengan routes/api.php Laravel (/api/auth/google/redirect)
+    window.location.href = `${backendUrl}/api/auth/google/redirect`;
   };
 
   return (
