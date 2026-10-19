@@ -16,7 +16,7 @@ const Login = () => {
         {/* Tombol Sign in with Google (Menggunakan tag <a> murni) */}
         <div className="mt-8">
           <a
-            href="https://linkhub-backend.onrender.com/api/auth/google/redirect"
+            href="https://linkhub-pttb.onrender.com/api/auth/google/redirect"
             className="w-full flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 border border-slate-300 rounded-xl shadow-sm transition-all duration-200 active:scale-[0.98]"
           >
             {/* Google SVG Icon */}
