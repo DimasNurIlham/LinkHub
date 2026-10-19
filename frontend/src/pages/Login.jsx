@@ -1,9 +1,4 @@
 const Login = () => {
-  const handleGoogleLogin = () => {
-  // WAJIB: Gunakan window.location.href agar browser melakukan navigasi halaman utuh
-  window.location.href = 'https://linkhub-backend.onrender.com/api/auth/google/redirect';
-};
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-slate-100 text-center">
@@ -18,11 +13,10 @@ const Login = () => {
           Kelola dan bagikan semua tautan portofolio serta media sosialmu dalam satu tempat.
         </p>
 
-        {/* Tombol Sign in with Google */}
+        {/* Tombol Sign in with Google (Menggunakan tag <a> murni) */}
         <div className="mt-8">
-          <button
-            type="button"
-            onClick={handleGoogleLogin}
+          <a
+            href="https://linkhub-backend.onrender.com/api/auth/google/redirect"
             className="w-full flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 border border-slate-300 rounded-xl shadow-sm transition-all duration-200 active:scale-[0.98]"
           >
             {/* Google SVG Icon */}
@@ -45,7 +39,7 @@ const Login = () => {
               />
             </svg>
             <span>Masuk dengan Google</span>
-          </button>
+          </a>
         </div>
 
         {/* Footer info */}
