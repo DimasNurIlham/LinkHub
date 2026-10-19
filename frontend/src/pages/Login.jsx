@@ -1,10 +1,16 @@
 const Login = () => {
   const handleGoogleLogin = () => {
-    // Ambil URL backend dari Environment Variable Vercel
-    const backendUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'https://linkhub-backend.onrender.com';
+    // 1. Ambil URL dari env atau fallback
+    let rawUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'https://linkhub-backend.onrender.com';
     
-    // Sesuaikan path endpoint dengan routes/api.php Laravel (/api/auth/google/redirect)
-    window.location.href = `${backendUrl}/api/auth/google/redirect`;
+    // 2. Bersihkan jika ada format markdown/kurung siku yang terbawa
+    const cleanUrl = rawUrl.replace(/\[\vert{}\]|\(https?:\/\/[^)]+\)/g, '').trim();
+
+    // 3. Pastikan tidak ada slash di akhir URL
+    const baseUrl = cleanUrl.endsWith('/') ? cleanUrl.slice(0, -1) : cleanUrl;
+    
+    // 4. Arahkan browser ke endpoint redirect Laravel
+    window.location.href = `${baseUrl}/api/auth/google/redirect`;
   };
 
   return (
@@ -24,6 +30,7 @@ const Login = () => {
         {/* Tombol Sign in with Google */}
         <div className="mt-8">
           <button
+            type="button"
             onClick={handleGoogleLogin}
             className="w-full flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-700 font-semibold py-3 px-4 border border-slate-300 rounded-xl shadow-sm transition-all duration-200 active:scale-[0.98]"
           >
