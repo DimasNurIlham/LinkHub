@@ -1,16 +1,10 @@
 const Login = () => {
   const handleGoogleLogin = () => {
-    // 1. Ambil URL dari env atau fallback
-    let rawUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || 'https://linkhub-backend.onrender.com';
+    // Tulis URL backend Render secara langsung tanpa memanggil import.meta.env
+    const backendUrl = 'https://linkhub-backend.onrender.com';
     
-    // 2. Bersihkan jika ada format markdown/kurung siku yang terbawa
-    const cleanUrl = rawUrl.replace(/\[\vert{}\]|\(https?:\/\/[^)]+\)/g, '').trim();
-
-    // 3. Pastikan tidak ada slash di akhir URL
-    const baseUrl = cleanUrl.endsWith('/') ? cleanUrl.slice(0, -1) : cleanUrl;
-    
-    // 4. Arahkan browser ke endpoint redirect Laravel
-    window.location.href = `${baseUrl}/api/auth/google/redirect`;
+    // Arahkan browser ke endpoint redirect Google
+    window.location.href = `${backendUrl}/api/auth/google/redirect`;
   };
 
   return (
